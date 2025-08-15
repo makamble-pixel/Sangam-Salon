@@ -44,7 +44,17 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-connect(process.env.MONGODB_URI).catch(e=>{ console.error('DB error', e.message); process.exit(1); });
+// Connect to MongoDB
+connect(process.env.MONGODB_URI).catch(e => { 
+  console.error('DB connection error:', e.message); 
+  process.exit(1); 
+});
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled Rejection:', err);
+  process.exit(1);
+});
 
 function requireAdmin(req, res, next){
   console.log('Admin middleware: Checking authorization for', req.path);
