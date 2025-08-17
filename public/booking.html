@@ -13,14 +13,28 @@
   <script defer src="/assets/js/booking.js"></script>
 </head>
 <body>
-  <nav>
+    <nav>
     <div class="container nav-inner">
       <div class="brand">
         <a href="/">
           <span>Sangam </span>Salon
         </a>
       </div>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+          <line x1="3" y1="6" x2="21" y2="6" stroke-width="2" />
+          <line x1="3" y1="12" x2="21" y2="12" stroke-width="2" />
+          <line x1="3" y1="18" x2="21" y2="18" stroke-width="2" />
+        </svg>
+      </button>
       <div class="menu">
+        <button class="menu-toggle" style="margin-left:auto;" aria-label="Toggle Menu">
+          <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+            <line x1="3" y1="6" x2="21" y2="6" stroke-width="2" />
+            <line x1="3" y1="12" x2="21" y2="12" stroke-width="2" />
+            <line x1="3" y1="18" x2="21" y2="18" stroke-width="2" />
+          </svg>
+        </button>
         <a href="/services.html">Services</a>
         <a href="/booking.html" class="cta">Book Now</a>
         <a href="/gallery.html">Gallery</a>
@@ -117,5 +131,15 @@
       </div>
     </div>
   </footer>
+    <script>
+    const toggles = document.querySelectorAll('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>

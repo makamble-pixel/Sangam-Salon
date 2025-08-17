@@ -39,19 +39,21 @@ function renderServices(list) {
   }
   
   const html = list.map(service => `
-    <div class="card" style="text-align:center;">
-      <img src="${serviceImages[service.name] || 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop'}" alt="${service.name}" style="width:100%;height:180px;object-fit:cover;border-radius:12px;margin-bottom:16px;"/>
-      <h3 style="margin-bottom:8px;color:var(--text);font-size:1.3rem;">${service.name}</h3>
-      <p class="small" style="margin-bottom:12px;line-height:1.6;">${service.description || 'Professional service tailored to your needs'}</p>
-      <div class="price">₹${service.price}</div>
-      <p class="small" style="margin-bottom:16px;color:var(--text-secondary);">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;margin-right:4px;vertical-align:-2px;">
-          <circle cx="12" cy="12" r="10"/>
-          <polyline points="12,6 12,12 16,14"/>
-        </svg>
-        ${service.durationMinutes} minutes
-      </p>
-      <a href="/booking.html${service._id ? (`?serviceId=${service._id}`) : (`?serviceName=${encodeURIComponent(service.name)}`)}" class="btn primary" style="width:100%;">
+    <div class="card" style="text-align:center;display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <img src="${serviceImages[service.name] || 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop'}" alt="${service.name}" style="width:100%;height:180px;object-fit:cover;border-radius:12px;margin-bottom:16px;"/>
+        <h3 style="margin-bottom:8px;color:var(--text);font-size:1.3rem;">${service.name}</h3>
+        <p class="small" style="margin-bottom:12px;line-height:1.6;">${service.description || 'Professional service tailored to your needs'}</p>
+        <div class="price">₹${service.price}</div>
+        <p class="small" style="margin-bottom:16px;color:var(--text-secondary);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;margin-right:4px;vertical-align:-2px;">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12,6 12,12 16,14"/>
+          </svg>
+          ${service.durationMinutes} minutes
+        </p>
+      </div>
+      <a href="/booking.html${service._id ? (`?serviceId=${service._id}`) : (`?serviceName=${encodeURIComponent(service.name)}`)}" class="btn primary" style="width:100%;margin-top:auto">
         Book This Service
       </a>
     </div>

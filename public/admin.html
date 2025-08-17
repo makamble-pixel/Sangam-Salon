@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Admin Dashboard - Sangam Salon</title>
-  <meta name="description" content="Admin dashboard for Sangam Salon - manage bookings, schedules, and salon operations.">
+  <meta name="description"
+    content="Admin dashboard for Sangam Salon - manage bookings, schedules, and salon operations.">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +14,7 @@
   <script defer src="/assets/js/app.js"></script>
   <script defer src="/assets/js/admin.js"></script>
 </head>
+
 <body>
   <nav>
     <div class="container nav-inner">
@@ -20,7 +23,21 @@
           <span>Sangam </span>Salon
         </a>
       </div>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+          <line x1="3" y1="6" x2="21" y2="6" stroke-width="2" />
+          <line x1="3" y1="12" x2="21" y2="12" stroke-width="2" />
+          <line x1="3" y1="18" x2="21" y2="18" stroke-width="2" />
+        </svg>
+      </button>
       <div class="menu">
+        <button class="menu-toggle" style="margin-left:auto;" aria-label="Toggle Menu">
+          <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+            <line x1="3" y1="6" x2="21" y2="6" stroke-width="2" />
+            <line x1="3" y1="12" x2="21" y2="12" stroke-width="2" />
+            <line x1="3" y1="18" x2="21" y2="18" stroke-width="2" />
+          </svg>
+        </button>
         <a href="/services.html">Services</a>
         <a href="/booking.html" class="cta">Book Now</a>
         <a href="/gallery.html">Gallery</a>
@@ -33,19 +50,24 @@
 
   <main class="container section">
     <div style="text-align:center;margin-bottom:40px;">
-      <h1 style="font-size:2.5rem;margin-bottom:16px;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Admin Dashboard</h1>
+      <h1
+        style="font-size:2.5rem;margin-bottom:16px;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+        Admin Dashboard</h1>
       <p class="small" style="font-size:1.1rem;">Manage bookings, schedules, and salon operations</p>
     </div>
 
     <!-- Authentication Section -->
     <div id="auth-section" class="card" style="margin-bottom:30px;">
       <h3 style="margin-bottom:20px;color:var(--accent);">🔐 Authentication</h3>
-      <div style="display:flex;gap:12px;align-items:end;">
+      <div style="display:flex;gap:12px;align-items:center;justify-content:center;">
         <div style="flex:1;">
           <label for="admin-password">Admin Token</label>
-          <input id="admin-password" type="password" placeholder="Enter admin token"/>
+          <input id="admin-password" type="password" placeholder="Enter admin token" />
         </div>
-        <button id="login-btn" class="btn primary">Login</button>
+        <div style="margin-top: 14px;">
+
+          <button id="login-btn" class="btn primary">Login</button>
+        </div>
       </div>
       <div class="warn" style="margin-top:12px;">
         <strong>Note:</strong> Enter your admin token to access the dashboard.
@@ -81,13 +103,14 @@
         <!-- Shop Status Management -->
         <div class="card">
           <h3 style="margin-bottom:20px;color:var(--accent);">🏪 Shop Status Management</h3>
-          <div style="display:flex;gap:12px;align-items:end;margin-bottom:16px;">
+          <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;">
             <div style="flex:1;">
               <label for="shop-date">Select Date</label>
-              <input id="shop-date" type="date"/>
+              <input id="shop-date" type="date" />
             </div>
-            <button id="check-status-btn" class="btn outline">Check Status</button>
+            <button id="check-status-btn" style="margin-top: 10px;" class="btn outline">Check Status</button>
           </div>
+
           <div id="shop-status-display" style="margin-bottom:16px;display:none;">
             <div class="badge" id="status-badge">Open</div>
             <p class="small" id="status-date"></p>
@@ -95,9 +118,7 @@
           <div style="display:flex;gap:12px;flex-wrap:wrap;">
             <button id="set-open-btn" class="btn success">Set Open</button>
             <button id="set-closed-btn" class="btn error">Set Closed</button>
-          </div>
-          <div style="margin-top:16px;">
-            <button id="logout-btn" class="btn outline">Logout</button>
+            <button id="logout-btn" style="margin-top:16px;height: fit-content;" class="btn outline">Logout</button>
           </div>
         </div>
       </div>
@@ -182,10 +203,21 @@
         </div>
       </div>
       <div style="border-top:1px solid var(--border);padding-top:20px;">
-        © <span id="year"></span> Sangam Salon · All rights reserved · 
+        © <span id="year"></span> Sangam Salon · All rights reserved ·
         <a href="/booking.html">Book an appointment</a>
       </div>
     </div>
   </footer>
+  <script>
+    const toggles = document.querySelectorAll('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
+
 </html>
