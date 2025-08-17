@@ -1,20 +1,76 @@
-<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Contact</title><link rel='stylesheet' href='/assets/css/styles.css'></head><body><nav>
-  <div class="container nav-inner">
-    <div class="brand"><a href="/"><span>Sangam </span>Salon</a></div>
-    <div class="menu">
-      <a href="/services.html">Services</a>
-      <a href="/booking.html" class="cta">Book Now</a>
-      <a href="/gallery.html">Gallery</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html">Contact</a>
-      <a href="/admin.html">Admin</a>
+<!doctype html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <title>Contact</title>
+  <link rel='stylesheet' href='/assets/css/styles.css'>
+</head>
+
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <div class="brand">
+        <a href="/">
+          <span>Sangam </span>Salon
+        </a>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+          <line x1="3" y1="6" x2="21" y2="6" stroke-width="2" />
+          <line x1="3" y1="12" x2="21" y2="12" stroke-width="2" />
+          <line x1="3" y1="18" x2="21" y2="18" stroke-width="2" />
+        </svg>
+      </button>
+      <div class="menu">
+        <button class="menu-toggle" style="margin-left:auto;" aria-label="Toggle Menu">
+          <svg width="28" height="28" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+            <line x1="3" y1="6" x2="21" y2="6" stroke-width="2" />
+            <line x1="3" y1="12" x2="21" y2="12" stroke-width="2" />
+            <line x1="3" y1="18" x2="21" y2="18" stroke-width="2" />
+          </svg>
+        </button>
+        <a href="/services.html">Services</a>
+        <a href="/booking.html" class="cta">Book Now</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/admin.html">Admin</a>
+      </div>
     </div>
-  </div>
-</nav>
-<main class='container section'><h2>Contact</h2><div class='grid'><div class='card'><p><strong>Phone:</strong> +91 90000 00000</p><p><strong>Email:</strong> hello@sangamsalon.example</p></div><div class='card'><form onsubmit='event.preventDefault(); alert("Thanks — we will contact you.");'><label>Name</label><input required placeholder='Your name' /><label>Email</label><input required type='email' placeholder='you@example.com' /><label>Message</label><textarea rows='5' placeholder='How can we help?'></textarea><button class='btn primary' type='submit'>Send</button></form></div></div></main><footer class="footer">
-  <div class="container">
-    © <span id="year"></span> Sangam Salon · Unisex · Open daily 10:00–20:00 · <a href="/booking.html">Book an appointment</a>
-  </div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</footer>
-</body></html>
+  </nav>
+  <main class='container section'>
+    <h2>Contact</h2>
+    <div class='grid'>
+      <div class='card'>
+        <p><strong>Phone:</strong> +91 90000 00000</p>
+        <p><strong>Email:</strong> hello@sangamsalon.example</p>
+      </div>
+      <div class='card'>
+        <form onsubmit='event.preventDefault(); alert("Thanks — we will contact you.");'><label>Name</label><input
+            required placeholder='Your name' /><label>Email</label><input required type='email'
+            placeholder='you@example.com' /><label>Message</label><textarea rows='5'
+            placeholder='How can we help?'></textarea><button class='btn primary' type='submit'>Send</button></form>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      © <span id="year"></span> Sangam Salon · Unisex · Open daily 10:00–20:00 · <a href="/booking.html">Book an
+        appointment</a>
+    </div>
+  </footer>
+  <script>
+    const toggles = document.querySelectorAll('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+
+</html>

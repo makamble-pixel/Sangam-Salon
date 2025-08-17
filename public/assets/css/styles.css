@@ -82,6 +82,15 @@ nav {
   background-clip: text;
 }
 
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+}
+
 .menu {
   display: flex;
   gap: 8px;
@@ -235,6 +244,51 @@ nav {
 .card:hover::before {
   opacity: 1;
 }
+
+.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* spacing between fields */
+}
+
+.card form label {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.card form input,
+.card form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-sm, 6px);
+  border: 1px solid #444;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.card form input:focus,
+.card form textarea:focus {
+  outline: none;
+  border-color: var(--accent, #0f0);
+}
+
+.card form .btn.primary {
+  align-self: flex-start; /* button aligns left under textarea */
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-sm, 6px);
+  background: var(--accent-gradient, #0f0);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card form .btn.primary:hover {
+  transform: translateY(-2px);
+}
+
 
 /* Grid */
 .grid {
@@ -461,9 +515,41 @@ input::placeholder {
     font-size: 2.5rem;
   }
   
-  .menu {
-    display: none;
+   .menu {
+    display: none; /* hidden by default */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    width: 100%;
+    padding: 8px;
+    background: var(--background, #111); /* fallback bg */
+    border-radius: var(--radius-sm);
+    position: absolute;
+    right:0;
+    top:0
   }
+
+  .menu.active {
+    display: flex; /* show when toggled */
+  }
+
+  .menu a {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+  }
+
+  .menu a.cta {
+    text-align: center;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+  /* .brand{
+    display:none
+  } */
   
   .grid {
     grid-template-columns: 1fr;
